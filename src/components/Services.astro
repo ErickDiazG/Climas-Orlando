@@ -1,0 +1,43 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+    {
+        title: "Venta de Equipos Mirage",
+        description: "Encuentre la última tecnología en climatización. Ofrecemos minisplits inverter de alta eficiencia energética para su confort y ahorro.",
+        imageSrc: "https://lh3.googleusercontent.com/aida-public/AB6AXuDo7Hh5CSpC1gXupztfh3BynPM1nmZP4WlXCacZ0Z5b9Xhnss-RbgvmptcrizPrZQIFMyyFs-SuqSXGrVp3ATF1WVZYkLcdHKlPr_wYwZ794DeDTYHeI_GiYOL9O7J8oc7C4NR8jE4Z4bN2dbPocjBPVN33H17PbxJChZvZikcUDUqpjcRi4dmh1xCKbiknFMdUgKLsEgXz_pkCR_9ZZ_5uLuYhYGQbJfyi-fDih308h1N3CCyuOoeZjaGJ9NG83Xxi3ng57D9yaUCK",
+        imageAlt: "Modern split air conditioner mounted on a clean wall",
+        features: ["Garantía directa de fabricante", "Instalación básica incluida"],
+        ctaText: "Ver Catálogo",
+        icon: "storefront"
+    },
+    {
+        title: "Reparación de Lavadoras",
+        description: "Expertos en la reparación de lavadoras Whirlpool, especializándonos en modelos de reloj y sistemas análogos tradicionales.",
+        imageSrc: "https://lh3.googleusercontent.com/aida-public/AB6AXuDg3oYCKFJSP4C5DlHx_hol2rKth8LOag5IaHZPtY-L3fM_WPmzYnOeOWlFtP0GbRumc8Bk0fkVcW2_8MBcguuUNBdrRJe0o1CYyEq4hE3T4cQwBSoT9wO56JpMZr7GO-WiKyKPHkNszwgTlEUbTG0eTmvipeanIVDsqqjt_mPDIPTG2HSyj0vxtNV_ZzNEVm3CLoL0rSRHFlQV7SbWvuQwxD3UseeWep8mO1OVgDe4b0r53Kqg_2kEE3AoClOzM20zlOOMkjtSs9OG",
+        imageAlt: "Close up of washing machine dial and controls",
+        features: ["Refacciones originales", "Diagnóstico a domicilio"],
+        ctaText: "Agendar Revisión",
+        icon: "build_circle"
+    },
+    {
+        title: "Mantenimiento de Climas",
+        description: "Servicio preventivo y correctivo completo para minisplits y unidades de ventana. Limpieza profunda y carga de gas.",
+        imageSrc: "https://lh3.googleusercontent.com/aida-public/AB6AXuCydSjMGyn9EPpAlIkMMzW27j10xfzlAY_alKznVqbP3BT_p-onGX0ciSfr_m6qb_tatXXeI3fRQX6XMTIk7nBdY-Fe2DbD6p59KsbHU6scSLniTJ31wu9lxNPQUE9I3x4oV416xKibg964f4RaGJJdYH7QV_qxgCuXzFfS5VoFox8-nDxpodYdhmIgXLc8SM7WExRle7XJBu4E4w-UMCpSnkcF0E6I2BQN3uN26AGltB2bAEOY2VqPT7O1cOVDMle9xY28sIVjHVQY",
+        imageAlt: "Technician cleaning air conditioner filter with tools",
+        features: ["Limpieza química profunda", "Prevención de fugas"],
+        ctaText: "Solicitar Servicio",
+        icon: "ac_unit"
+    }
+];
+---
+
+<section id="servicios" class="py-16 md:py-24 bg-white dark:bg-gray-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {services.map(service => (
+                <ServiceCard {...service} />
+            ))}
+        </div>
+    </div>
+</section>
