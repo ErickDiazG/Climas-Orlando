@@ -1,30 +1,223 @@
 ---
+import { WHATSAPP } from '../config/site';
 ---
-<nav class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+
+<!-- Transparent by default, solid white on scroll -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
-            <div class="flex-shrink-0 flex items-center gap-2">
-                <span class="material-icons-outlined text-blue-600 text-3xl">ac_unit</span>
-                <div class="flex flex-col">
-                    <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white leading-none">CLIMAS ORLANDO</span>
-                    <span class="text-xs font-medium text-gray-500 dark:text-gray-400 tracking-wider">LÍNEA BLANCA Y REFRIGERACIÓN</span>
+            <!-- Logo -->
+            <a href="#inicio" class="flex-shrink-0 flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
+                    <span class="material-icons-outlined text-white text-xl">ac_unit</span>
                 </div>
-            </div>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#inicio" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition">Inicio</a>
-                <a href="#servicios" class="text-blue-600 dark:text-blue-500 font-bold">Servicios</a>
-                <a href="#sobrenosotros" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition">Sobre Nosotros</a>
-                <a href="https://wa.me/528992163741?text=Hola%2C%20buenas%20tardes.%20Vengo%20de%20su%20sitio%20web%20y%20me%20interesa%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20clima%20y%20l%C3%ADnea%20blanca." target="_blank" class="px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-semibold transition shadow-lg shadow-amber-600/30 flex items-center gap-2">
-                    <span class="material-icons-outlined text-sm">call</span>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-lg tracking-tight leading-none nav-text-color">CLIMAS ORLANDO</span>
+                    <span class="text-[10px] font-semibold text-blue-400 tracking-[0.15em] uppercase">Línea Blanca y Refrigeración</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-1">
+                <a href="#inicio" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">Inicio</a>
+                <a href="#servicios" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">Servicios</a>
+                <a href="#sobre-nosotros" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">Nosotros</a>
+                <a href="#faq" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">FAQ</a>
+                <div class="w-px h-6 bg-white/20 mx-2 nav-divider"></div>
+                <a href={WHATSAPP.default} target="_blank" class="ml-1 px-5 py-2.5 rounded-xl bg-green-500 hover:bg-green-400 text-white font-bold transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:-translate-y-0.5 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     Contactar
                 </a>
             </div>
-            <!-- Mobile menu button -->
-            <div class="flex items-center md:hidden">
-                <button type="button" class="text-gray-500 hover:text-blue-600 focus:outline-none" aria-label="Menu">
-                    <span class="material-icons-outlined text-3xl">menu</span>
-                </button>
-            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+                id="mobile-menu-btn"
+                type="button"
+                class="flex items-center md:hidden w-11 h-11 rounded-xl border border-white/30 justify-center nav-text-color transition-all duration-200 mobile-menu-btn-style"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                <span class="material-icons-outlined text-2xl" id="menu-icon">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[280px] bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-out md:hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-100">
+            <span class="font-extrabold text-lg text-gray-900">Menú</span>
+            <button id="mobile-menu-close" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:border-blue-300 transition-all">
+                <span class="material-icons-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col p-5 gap-1">
+            <a href="#inicio" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
+                <span class="material-icons-outlined text-xl text-gray-400">home</span>
+                Inicio
+            </a>
+            <a href="#servicios" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
+                <span class="material-icons-outlined text-xl text-gray-400">build</span>
+                Servicios
+            </a>
+            <a href="#sobre-nosotros" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
+                <span class="material-icons-outlined text-xl text-gray-400">groups</span>
+                Nosotros
+            </a>
+            <a href="#faq" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
+                <span class="material-icons-outlined text-xl text-gray-400">help_outline</span>
+                FAQ
+            </a>
+            <div class="h-px bg-gray-100 my-3"></div>
+            <a href={WHATSAPP.default} target="_blank" class="px-6 py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                WhatsApp
+            </a>
+            <a href="tel:+528992163741" class="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                <span class="material-icons-outlined text-lg">phone</span>
+                Llamar Ahora
+            </a>
         </div>
     </div>
 </nav>
+
+<style>
+    /* Default state: transparent nav over hero */
+    #main-nav {
+        background: transparent;
+    }
+
+    .nav-text-color {
+        color: white;
+    }
+
+    .nav-link-color {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .nav-link-color:hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-divider {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-menu-btn-style {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Scrolled state: solid white background */
+    #main-nav.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    #main-nav.scrolled .nav-text-color {
+        color: #111827;
+    }
+
+    #main-nav.scrolled .nav-link-color {
+        color: #4b5563;
+    }
+
+    #main-nav.scrolled .nav-link-color:hover {
+        color: #2563eb;
+        background-color: #eff6ff;
+    }
+
+    #main-nav.scrolled .nav-divider {
+        background-color: #e5e7eb;
+    }
+
+    #main-nav.scrolled .mobile-menu-btn-style {
+        border-color: #e5e7eb;
+        color: #4b5563;
+    }
+
+    /* Active link */
+    .nav-link.active {
+        font-weight: 700;
+    }
+
+    #main-nav:not(.scrolled) .nav-link.active {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    #main-nav.scrolled .nav-link.active {
+        color: #2563eb;
+        background-color: #eff6ff;
+    }
+</style>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuClose = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const menuIcon = document.getElementById('menu-icon');
+
+    function openMenu() {
+        menu?.classList.remove('translate-x-full');
+        overlay?.classList.remove('opacity-0', 'pointer-events-none');
+        overlay?.classList.add('opacity-100', 'pointer-events-auto');
+        menuIcon!.textContent = 'close';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        menu?.classList.add('translate-x-full');
+        overlay?.classList.add('opacity-0', 'pointer-events-none');
+        overlay?.classList.remove('opacity-100', 'pointer-events-auto');
+        menuIcon!.textContent = 'menu';
+        document.body.style.overflow = '';
+    }
+
+    menuBtn?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+
+    // Close on nav link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Navbar scroll: transparent → solid white
+    const nav = document.getElementById('main-nav');
+    function updateNav() {
+        if (window.scrollY > 60) {
+            nav?.classList.add('scrolled');
+        } else {
+            nav?.classList.remove('scrolled');
+        }
+    }
+    window.addEventListener('scroll', updateNav);
+    updateNav(); // Run on page load
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -60% 0px' });
+
+    sections.forEach(section => sectionObserver.observe(section));
+</script>

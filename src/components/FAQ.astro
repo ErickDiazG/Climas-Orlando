@@ -1,0 +1,102 @@
+---
+const faqs = [
+    {
+        question: "¿Qué marcas de minisplits manejan?",
+        answer: "Somos distribuidores autorizados de equipos Mirage, y también damos servicio a todas las marcas principales: Carrier, LG, Samsung, Whirlpool, Mabe, Daikin, entre otras.",
+    },
+    {
+        question: "¿Cuánto cuesta el diagnóstico a domicilio?",
+        answer: "El diagnóstico a domicilio tiene un costo accesible que se descuenta del total si decide realizar la reparación con nosotros. Contáctenos por WhatsApp para conocer el precio actual.",
+    },
+    {
+        question: "¿Ofrecen garantía en sus reparaciones?",
+        answer: "Sí, todas nuestras reparaciones incluyen garantía por escrito. Utilizamos únicamente refacciones nuevas y originales para asegurar la durabilidad del trabajo realizado.",
+    },
+    {
+        question: "¿En cuánto tiempo pueden atenderme?",
+        answer: "Contamos con disponibilidad inmediata. En la mayoría de los casos podemos atenderle el mismo día o al día siguiente de su llamada. Para urgencias, contáctenos directamente por WhatsApp.",
+    },
+    {
+        question: "¿Qué áreas cubren en Reynosa?",
+        answer: "Cubrimos toda la ciudad de Reynosa y sus alrededores, incluyendo todas las colonias y fraccionamientos. También atendemos zonas industriales y comerciales.",
+    },
+    {
+        question: "¿Qué incluye el mantenimiento preventivo de un minisplit?",
+        answer: "Nuestro servicio de mantenimiento incluye: limpieza química profunda de evaporador y condensador, revisión de presiones de gas, limpieza de filtros, verificación eléctrica completa, y revisión de drenaje. Todo para que su equipo funcione al 100%.",
+    },
+];
+---
+
+<section id="faq" class="py-20 md:py-28 bg-white relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal">
+            <span class="inline-block text-blue-600 font-bold text-sm tracking-widest uppercase mb-3">FAQ</span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+                Preguntas frecuentes
+            </h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                Resolvemos sus dudas antes de contactarnos.
+            </p>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-4 reveal-stagger" id="faq-container">
+            {faqs.map((faq, i) => (
+                <div class="faq-item bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-blue-200 transition-colors duration-300">
+                    <button
+                        class="faq-trigger w-full flex items-center justify-between p-6 text-left focus:outline-none group"
+                        data-index={i}
+                        aria-expanded="false"
+                    >
+                        <span class="font-bold text-gray-900 text-[15px] pr-4 group-hover:text-blue-600 transition-colors">{faq.question}</span>
+                        <span class="material-icons-outlined text-gray-400 group-hover:text-blue-600 transition-all duration-300 flex-shrink-0 faq-icon">expand_more</span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <p class="px-6 pb-6 text-gray-500 text-[15px] leading-relaxed">{faq.answer}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.faq-trigger').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.closest('.faq-item');
+            const content = item?.querySelector('.faq-content') as HTMLElement | null;
+            const icon = button.querySelector('.faq-icon');
+            const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+            // Close all other items
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherContent = otherItem.querySelector('.faq-content') as HTMLElement | null;
+                    const otherIcon = otherItem.querySelector('.faq-icon');
+                    const otherButton = otherItem.querySelector('.faq-trigger');
+                    if (otherContent) otherContent.style.maxHeight = '0px';
+                    otherIcon?.classList.remove('rotate-180');
+                    otherButton?.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current
+            if (!isOpen && content) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon?.classList.add('rotate-180');
+                button.setAttribute('aria-expanded', 'true');
+            } else if (content) {
+                content.style.maxHeight = '0px';
+                icon?.classList.remove('rotate-180');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+</script>
+
+<style>
+    .faq-icon {
+        transition: transform 0.3s ease;
+    }
+</style>

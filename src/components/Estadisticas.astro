@@ -1,0 +1,55 @@
+---
+import { STATS } from '../config/site';
+
+const stats = [
+    {
+        value: `+${STATS.servicesCompleted}`,
+        label: "Servicios Realizados",
+        icon: "build",
+    },
+    {
+        value: `+${STATS.yearsExperience}`,
+        label: "Años de Experiencia",
+        icon: "workspace_premium",
+    },
+    {
+        value: `+${STATS.happyClients}`,
+        label: "Clientes Satisfechos",
+        icon: "groups",
+    },
+    {
+        value: `${STATS.warrantyPercent}%`,
+        label: "Refacciones Originales",
+        icon: "verified",
+    },
+];
+---
+
+<section class="py-20 md:py-24 bg-blue-950 relative overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 reveal">
+            <span class="inline-block text-blue-300 font-bold text-sm tracking-widest uppercase mb-3">En Números</span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4">
+                Resultados que hablan por sí solos
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 reveal-stagger">
+            {stats.map(stat => (
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="material-icons-outlined text-blue-300 text-2xl">{stat.icon}</span>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2">
+                        {stat.value}
+                    </div>
+                    <p class="text-blue-300 text-sm font-medium">{stat.label}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,32 @@
+---
+// Brand logos strip - builds trust through association
+const brands = [
+    { name: "Mirage", letter: "M" },
+    { name: "Whirlpool", letter: "W" },
+    { name: "Carrier", letter: "C" },
+    { name: "LG", letter: "LG" },
+    { name: "Samsung", letter: "S" },
+    { name: "Mabe", letter: "Ma" },
+    { name: "Daikin", letter: "D" },
+];
+---
+
+<section class="py-12 md:py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8 reveal">
+            Marcas con las que trabajamos
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 reveal-stagger">
+            {brands.map(brand => (
+                <div class="flex items-center justify-center group cursor-default">
+                    <div class="flex items-center gap-2 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                        <div class="w-10 h-10 rounded-lg bg-gray-200 group-hover:bg-blue-100 flex items-center justify-center transition-colors duration-300">
+                            <span class="text-sm font-extrabold text-gray-500 group-hover:text-blue-600 transition-colors duration-300">{brand.letter}</span>
+                        </div>
+                        <span class="text-lg font-bold text-gray-500 group-hover:text-gray-800 transition-colors duration-300 hidden sm:block">{brand.name}</span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

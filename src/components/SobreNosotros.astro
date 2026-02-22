@@ -1,0 +1,68 @@
+---
+import { STATS } from '../config/site';
+---
+
+<section id="sobre-nosotros" class="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <!-- Text Content -->
+            <div class="reveal">
+                <span class="inline-block text-blue-600 font-bold text-sm tracking-widest uppercase mb-3">Sobre Nosotros</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                    Más de {STATS.yearsExperience} años cuidando el confort de Reynosa
+                </h2>
+                <div class="space-y-4 text-gray-600 text-[15px] leading-relaxed mb-8">
+                    <p>
+                        <strong class="text-gray-900">Somos una empresa familiar</strong> que nació de la pasión por resolver problemas. Lo que empezó como un técnico con sus herramientas se convirtió en un equipo de profesionales capacitados que hoy atiende a cientos de familias y negocios en Reynosa.
+                    </p>
+                    <p>
+                        Nuestros técnicos reciben <strong class="text-gray-900">capacitación constante</strong> en las últimas tecnologías de climatización. Cada uno trabaja con uniforme, cubrezapatos, y lleva consigo refacciones originales para dar solución en la primera visita.
+                    </p>
+                    <p>
+                        Conocemos las colonias, conocemos el calor de Tamaulipas, y por eso sabemos exactamente qué equipo necesita su hogar. <strong class="text-gray-900">No somos una empresa de fuera — somos de aquí.</strong>
+                    </p>
+                </div>
+
+                <!-- Core values as compact badges -->
+                <div class="flex flex-wrap gap-3">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-semibold">
+                        <span class="material-icons-outlined text-base">family_restroom</span>
+                        Empresa Familiar
+                    </span>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-semibold">
+                        <span class="material-icons-outlined text-base">school</span>
+                        Técnicos Capacitados
+                    </span>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-lg text-sm font-semibold">
+                        <span class="material-icons-outlined text-base">location_on</span>
+                        100% Locales
+                    </span>
+                </div>
+            </div>
+
+            <!-- Image Side -->
+            <div class="relative reveal-right">
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                    <img
+                        src="/images/mantenimiento.webp"
+                        alt="Técnico de Climas Orlando realizando servicio profesional"
+                        class="w-full h-[400px] lg:h-[500px] object-cover"
+                        loading="lazy"
+                    />
+                </div>
+                <!-- Floating stat card -->
+                <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 border border-gray-100 hidden md:block">
+                    <div class="text-3xl font-extrabold text-blue-600 leading-none">+{STATS.servicesCompleted}</div>
+                    <p class="text-gray-500 text-sm mt-1">Servicios realizados</p>
+                </div>
+                <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-5 border border-gray-100 hidden md:block">
+                    <div class="text-3xl font-extrabold text-green-600 leading-none">{STATS.warrantyPercent}%</div>
+                    <p class="text-gray-500 text-sm mt-1">Refacciones originales</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,69 @@
+---
+const steps = [
+    {
+        number: "01",
+        title: "Contáctenos",
+        description: "Escríbanos por WhatsApp o llámenos. Le guiaremos desde el primer momento.",
+        icon: "chat",
+    },
+    {
+        number: "02",
+        title: "Diagnóstico",
+        description: "Un técnico visita su domicilio para evaluar el equipo y determinar la solución.",
+        icon: "search",
+    },
+    {
+        number: "03",
+        title: "Cotización Transparente",
+        description: "Presupuesto detallado y sin sorpresas. Usted aprueba antes de que comencemos.",
+        icon: "receipt_long",
+    },
+    {
+        number: "04",
+        title: "Solución Garantizada",
+        description: "Trabajo con refacciones nuevas y garantía por escrito.",
+        icon: "verified",
+    },
+];
+---
+
+<section class="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute top-20 right-0 w-72 h-72 bg-blue-100/50 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal">
+            <span class="inline-block text-blue-600 font-bold text-sm tracking-widest uppercase mb-3">Cómo Funciona</span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+                Proceso simple, resultados profesionales
+            </h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                En 4 pasos sencillos resolvemos su problema. Sin complicaciones.
+            </p>
+        </div>
+
+        <!-- Steps Grid — ALL icons use the same blue-600 for visual consistency -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-stagger">
+            {steps.map((step, i) => (
+                <div class="relative group">
+                    {/* Connector line */}
+                    {i < steps.length - 1 && (
+                        <div class="hidden lg:block absolute top-12 left-[60%] w-[calc(100%-20%)] h-0.5 bg-gradient-to-r from-gray-300 to-gray-300/0"></div>
+                    )}
+
+                    <div class="text-center">
+                        <div class="w-24 h-24 mx-auto rounded-3xl bg-blue-600 flex items-center justify-center mb-6 shadow-xl shadow-blue-600/25 group-hover:-translate-y-2 transition-transform duration-500">
+                            <span class="material-icons-outlined text-white text-3xl">{step.icon}</span>
+                        </div>
+
+                        <span class="text-xs font-bold text-blue-400 tracking-widest uppercase">Paso {step.number}</span>
+                        <h3 class="text-xl font-extrabold text-gray-900 mt-2 mb-3">{step.title}</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

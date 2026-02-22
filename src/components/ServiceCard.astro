@@ -6,40 +6,51 @@ interface Props {
     imageAlt: string;
     features: string[];
     ctaText: string;
+    ctaLink: string;
     icon: string;
     imageClass?: string;
 }
 
-const { title, description, imageSrc, imageAlt, features, ctaText, icon, imageClass = "" } = Astro.props;
+const { title, description, imageSrc, imageAlt, features, ctaText, ctaLink, icon, imageClass = "" } = Astro.props;
 ---
 
-<div class="group relative flex flex-col bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
-    <div class="relative h-64 overflow-hidden">
-        <img src={imageSrc} alt={imageAlt} class={`w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ${imageClass}`} />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-    </div>
-    
-    <!-- Icon Badge Overlap -->
-    <div class="absolute top-56 left-6 w-14 h-14 bg-blue-600 text-white rounded-lg flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800 z-10 group-hover:bg-blue-700 transition-colors">
-        <span class="material-icons-outlined text-2xl">{icon}</span>
+<div class="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 border border-gray-100 hover:-translate-y-2">
+    <!-- Image -->
+    <div class="relative h-56 overflow-hidden">
+        <img
+            src={imageSrc}
+            alt={imageAlt}
+            class={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out ${imageClass}`}
+            loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent"></div>
     </div>
 
+    <!-- Icon Badge (subtle) -->
+    <div class="absolute top-[196px] left-5 w-11 h-11 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-xl flex items-center justify-center shadow-md border-2 border-white z-10">
+        <span class="material-icons-outlined text-lg">{icon}</span>
+    </div>
+
+
+    <!-- Content -->
     <div class="p-6 pt-10 flex flex-col flex-grow">
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">{title}</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">
-            {description}
-        </p>
-        <ul class="space-y-2 mb-6 text-sm text-gray-500 dark:text-gray-400">
+        <h3 class="text-xl font-extrabold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">{title}</h3>
+        <p class="text-gray-500 text-[15px] leading-relaxed mb-5 flex-grow">{description}</p>
+
+        <ul class="space-y-2.5 mb-6">
             {features.map((feature) => (
-                <li class="flex items-center gap-2">
-                    <span class="material-icons-outlined text-blue-600 text-base">check_circle</span>
+                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                    <span class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0">
+                        <span class="material-icons-outlined text-green-500 text-xs">check</span>
+                    </span>
                     {feature}
                 </li>
             ))}
         </ul>
-        <a href="#" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-700 transition-colors mt-auto">
+
+        <a href={ctaLink} target="_blank" class="inline-flex items-center gap-1 text-blue-600 font-bold hover:text-blue-700 transition-all duration-300 mt-auto group/link">
             {ctaText}
-            <span class="material-icons-outlined ml-1 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <span class="material-icons-outlined text-sm transform group-hover/link:translate-x-1.5 transition-transform duration-300">arrow_forward</span>
         </a>
     </div>
 </div>

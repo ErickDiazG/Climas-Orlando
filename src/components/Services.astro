@@ -1,44 +1,57 @@
 ---
 import ServiceCard from './ServiceCard.astro';
+import { WHATSAPP } from '../config/site';
 
 const services = [
     {
         title: "Venta de Equipos Mirage",
-        description: "Encuentre la última tecnología en climatización. Ofrecemos minisplits inverter de alta eficiencia energética para su confort y ahorro.",
+        description: "Minisplits inverter de alta eficiencia con instalación incluida.",
         imageSrc: "/images/minisplit.webp",
-        imageAlt: "Modern split air conditioner mounted on a clean wall",
+        imageAlt: "Minisplit moderno y eficiente instalado en pared",
         features: ["Garantía directa de fabricante", "Instalación básica incluida"],
-        ctaText: "Ver Catálogo",
+        ctaText: "Cotizar equipo",
+        ctaLink: WHATSAPP.ventaEquipos,
         icon: "storefront"
     },
     {
         title: "Reparación de Lavadoras",
-        description: "Expertos en la reparación de lavadoras Whirlpool, especializándonos en modelos de reloj y sistemas análogos tradicionales.",
+        description: "Diagnóstico y reparación con refacciones originales Whirlpool.",
         imageSrc: "/images/lavadora.webp",
-        imageAlt: "Close up of washing machine dial and controls",
-        features: ["Refacciones originales", "Diagnóstico a domicilio"],
-        ctaText: "Agendar Revisión",
+        imageAlt: "Lavadora Whirlpool en proceso de reparación profesional",
+        features: ["Refacciones originales", "Servicio el mismo día"],
+        ctaText: "Agendar revisión",
+        ctaLink: WHATSAPP.reparacionLavadoras,
         icon: "build_circle",
         imageClass: "object-top"
     },
     {
         title: "Mantenimiento de Climas",
-        description: "Servicio preventivo y correctivo completo para minisplits y unidades de ventana. Limpieza profunda y carga de gas.",
+        description: "Limpieza química profunda y carga de gas para minisplits.",
         imageSrc: "/images/mantenimiento.webp",
-        imageAlt: "Technician cleaning air conditioner filter with tools",
-        features: ["Limpieza química profunda", "Prevención de fugas"],
-        ctaText: "Solicitar Servicio",
+        imageAlt: "Técnico realizando mantenimiento profesional de minisplit",
+        features: ["Limpieza química profunda", "Revisión completa del sistema"],
+        ctaText: "Solicitar servicio",
+        ctaLink: WHATSAPP.mantenimientoClimas,
         icon: "ac_unit"
     }
 ];
 ---
 
-<section id="servicios" class="py-16 md:py-24 bg-white dark:bg-gray-800 relative">
+<section id="servicios" class="py-20 md:py-28 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            ¿En qué podemos ayudarte hoy?
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal">
+            <span class="inline-block text-blue-600 font-bold text-sm tracking-widest uppercase mb-3">Nuestros Servicios</span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+                ¿En qué podemos ayudarte hoy?
+            </h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                Soluciones profesionales de climatización y línea blanca para tu hogar o negocio.
+            </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 reveal-stagger">
             {services.map(service => (
                 <ServiceCard {...service} />
             ))}
