@@ -26,6 +26,8 @@ const { title } = Astro.props;
 		<meta property="og:locale" content="es_MX" />
 		<meta property="og:site_name" content={SITE.name} />
 
+		<!-- Critical Core Assets Preload -->
+		<link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
 		<!-- Preconnect for performance -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
