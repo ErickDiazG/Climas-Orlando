@@ -4,51 +4,51 @@ import { STATS } from '../config/site';
 
 <section id="sobre-nosotros" class="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
     <!-- Decorative -->
-    <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- Text Content -->
             <div class="reveal">
-                <span class="inline-block text-blue-600 font-bold text-sm tracking-widest uppercase mb-3">Sobre Nosotros</span>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                <span class="inline-block text-blue-600 font-bold text-sm tracking-widest uppercase mb-3">Mi Experiencia</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                     Más de {STATS.yearsExperience} años cuidando el confort de Reynosa
                 </h2>
-                <div class="space-y-4 text-gray-600 text-[15px] leading-relaxed mb-8">
+                <div class="space-y-4 text-slate-600 text-[15px] leading-relaxed mb-8">
                     <p>
-                        <strong class="text-gray-900">Somos una empresa familiar</strong> que nació de la pasión por resolver problemas. Lo que empezó como un técnico con sus herramientas se convirtió en un equipo de profesionales capacitados que hoy atiende a cientos de familias y negocios en Reynosa.
+                        <strong class="text-slate-900">Soy un experto local</strong> apasionado por resolver problemas. Empecé con mis herramientas y el compromiso de hacer las cosas bien, y hoy tengo el privilegio de atender a decenas de familias y negocios en Reynosa.
                     </p>
                     <p>
-                        Nuestros técnicos reciben <strong class="text-gray-900">capacitación constante</strong> en las últimas tecnologías de climatización. Cada uno trabaja con uniforme, cubrezapatos, y lleva consigo refacciones originales para dar solución en la primera visita.
+                        Mantengo una <strong class="text-slate-900">capacitación constante</strong> en las últimas tecnologías de climatización y línea blanca. Trabajo siempre con uniformidad, herramientas limpias y uso refacciones originales para darte la solución garantizada en la primera visita.
                     </p>
                     <p>
-                        Conocemos las colonias, conocemos el calor de Tamaulipas, y por eso sabemos exactamente qué equipo necesita su hogar. <strong class="text-gray-900">No somos una empresa de fuera — somos de aquí.</strong>
+                        Conozco las colonias, entiendo el calor implacable de Tamaulipas, y por eso sé exactamente qué equipo necesita tu hogar. <strong class="text-slate-900">No soy una agencia foránea — soy de aquí, y respondo personalmente.</strong>
                     </p>
                 </div>
 
                 <!-- Core values as compact badges -->
                 <div class="flex flex-wrap gap-3">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-semibold">
-                        <span class="material-icons-outlined text-base">family_restroom</span>
-                        Empresa Familiar
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 text-blue-700 rounded-lg text-sm font-semibold">
+                        <span class="material-icons-outlined text-base">person</span>
+                        Trato Directo
                     </span>
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-semibold">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-100 text-green-700 rounded-lg text-sm font-semibold">
                         <span class="material-icons-outlined text-base">school</span>
-                        Técnicos Capacitados
+                        Capacitación Continua
                     </span>
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-lg text-sm font-semibold">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-100 text-amber-700 rounded-lg text-sm font-semibold">
                         <span class="material-icons-outlined text-base">location_on</span>
-                        100% Locales
+                        100% Local
                     </span>
                 </div>
             </div>
 
             <!-- Image Side -->
             <div class="relative reveal-right">
-                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200">
                     <img
-                        src="/images/mantenimiento.webp"
-                        alt="Técnico de Climas Orlando realizando servicio profesional"
+                        src="/images/trabajando.webp"
+                        alt="Experto local de Climas Orlando realizando servicio técnico"
                         class="w-full h-[400px] lg:h-[500px] object-cover"
                         loading="lazy"
                     />
@@ -56,11 +56,11 @@ import { STATS } from '../config/site';
                 <!-- Floating stat card -->
                 <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 border border-gray-100 hidden md:block">
                     <div class="text-3xl font-extrabold text-blue-600 leading-none">+{STATS.servicesCompleted}</div>
-                    <p class="text-gray-500 text-sm mt-1">Servicios realizados</p>
+                    <p class="text-slate-600 text-sm mt-1">Servicios realizados</p>
                 </div>
                 <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-5 border border-gray-100 hidden md:block">
                     <div class="text-3xl font-extrabold text-green-600 leading-none">{STATS.warrantyPercent}%</div>
-                    <p class="text-gray-500 text-sm mt-1">Refacciones originales</p>
+                    <p class="text-slate-600 text-sm mt-1">Refacciones originales</p>
                 </div>
             </div>
         </div>

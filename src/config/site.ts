@@ -30,8 +30,8 @@ export const SOCIAL = {
 } as const;
 
 export const STATS = {
-    yearsExperience: 10,
-    servicesCompleted: 500,
-    happyClients: 400,
+    yearsExperience: 4,
+    servicesCompleted: 100,
+    happyClients: 100,
     warrantyPercent: 100,
 } as const;
