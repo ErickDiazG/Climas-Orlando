@@ -1,5 +1,7 @@
 ---
 import { CONTACT, SITE } from '../config/site';
+import { Image } from 'astro:assets';
+import logoImg from '../../public/images/multiservicios-diaz-logo.webp';
 ---
 
 <footer class="bg-gray-50 text-slate-600 pt-16 pb-28 md:pb-12 relative overflow-hidden border-t border-gray-200">
@@ -9,7 +11,13 @@ import { CONTACT, SITE } from '../config/site';
             
             <!-- Column 1: Brand -->
             <div class="flex flex-col items-center text-center lg:col-span-1">
-                <img src="/images/multiservicios-diaz-logo.webp" alt="Logo Multiservicios Diaz" class="h-16 md:h-20 object-contain mb-6" />
+                <Image 
+                    src={logoImg} 
+                    alt="Logo Multiservicios Diaz" 
+                    width={160}
+                    height={160}
+                    class="h-16 md:h-20 w-auto object-contain mb-6 mix-blend-multiply" 
+                />
                 <p class="text-slate-600 leading-relaxed text-sm max-w-sm mx-auto">
                     Su socio de confianza para climatización y línea blanca en Reynosa. Calidad, honestidad y eficiencia en cada servicio.
                 </p>
@@ -21,7 +29,7 @@ import { CONTACT, SITE } from '../config/site';
                 <ul class="space-y-4 text-sm">
                     <li><a href="/" class="text-slate-500 hover:text-blue-600 transition-colors">Inicio</a></li>
                     <li><a href="#servicios" class="text-slate-500 hover:text-blue-600 transition-colors">Servicios</a></li>
-                    <li><a href="#nosotros" class="text-slate-500 hover:text-blue-600 transition-colors">Sobre Nosotros</a></li>
+                    <li><a href="#sobre-nosotros" class="text-slate-500 hover:text-blue-600 transition-colors">Mi Experiencia</a></li>
                 </ul>
             </div>
 

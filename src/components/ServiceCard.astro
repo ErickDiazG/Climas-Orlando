@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
     title: string;
     description: string;
-    imageSrc: string;
+    imageSrc: any; // Astro image metadata
     imageAlt: string;
     features: string[];
     ctaText: string;
@@ -17,9 +19,11 @@ const { title, description, imageSrc, imageAlt, features, ctaText, ctaLink, icon
 <div class="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 border border-gray-100 hover:-translate-y-2">
     <!-- Image -->
     <div class="relative h-56 overflow-hidden">
-        <img
+        <Image
             src={imageSrc}
             alt={imageAlt}
+            width={400}
+            height={300}
             class={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out ${imageClass}`}
             loading="lazy"
         />

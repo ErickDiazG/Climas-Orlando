@@ -1,12 +1,15 @@
 ---
 import ServiceCard from './ServiceCard.astro';
 import { WHATSAPP } from '../config/site';
+import minisplitImg from '../../public/images/minisplit caja.webp';
+import lavadoraImg from '../../public/images/lavadora.webp';
+import orlandoImg from '../../public/images/orlando-trabajando.webp';
 
 const services = [
     {
         title: "Venta de Equipos Mirage",
         description: "Minisplits de alta eficiencia con instalación incluida.",
-        imageSrc: "/images/minisplit caja.webp",
+        imageSrc: minisplitImg,
         imageAlt: "Minisplit moderno y eficiente instalado en pared",
         features: ["Garantía", "Instalación básica incluida"],
         ctaText: "Cotizar equipo",
@@ -16,7 +19,7 @@ const services = [
     {
         title: "Reparación de Lavadoras",
         description: "Diagnóstico y reparación con refacciones originales Whirlpool.",
-        imageSrc: "/images/lavadora.webp",
+        imageSrc: lavadoraImg,
         imageAlt: "Lavadora Whirlpool en proceso de reparación profesional",
         features: ["Refacciones originales", "Servicio el mismo día"],
         ctaText: "Agendar revisión",
@@ -27,7 +30,7 @@ const services = [
     {
         title: "Mantenimiento de Climas",
         description: "Limpieza profunda de evaporador, revisión de presiones de gas y limpieza de filtros.",
-        imageSrc: "/images/orlando-trabajando.webp",
+        imageSrc: orlandoImg,
         imageAlt: "Técnico realizando mantenimiento profesional de minisplit",
         features: ["Limpieza profunda", "Revisión completa del sistema"],
         ctaText: "Solicitar servicio",
