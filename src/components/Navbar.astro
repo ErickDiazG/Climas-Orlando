@@ -2,30 +2,35 @@
 import { WHATSAPP } from '../config/site';
 ---
 
-<!-- Transparent by default, solid white on scroll -->
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<!-- Header Wrapper -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent bg-transparent shadow-none">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20 items-center">
-            <!-- Logo -->
-            <a href="#inicio" class="flex-shrink-0 flex items-center gap-2.5 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
-                    <span class="material-icons-outlined text-white text-xl">ac_unit</span>
+        <div class="flex justify-between h-24 items-center transition-all duration-300" id="nav-container">
+            <!-- Logo & Brand Name -->
+            <a href="/" class="flex items-center gap-3 group relative z-50">
+                <div class="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-white rounded-full overflow-hidden shadow-sm border border-gray-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                        src="/images/multiservicios-diaz-logo.webp" 
+                        alt="Logo Multiservicios Diaz" 
+                        class="w-full h-full object-cover mix-blend-multiply scale-110" 
+                    />
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-extrabold text-xl leading-none tracking-tight nav-text-color transition-colors duration-200">CLIMAS ORLANDO</span>
-                    <span class="text-[0.65rem] font-extrabold tracking-[0.2em] text-blue-600 mt-0.5 uppercase title-subtitle-transition">MINISPLITS Y LAVADORAS</span>
+                    <span class="text-lg md:text-xl font-black tracking-tighter text-slate-900 leading-none">
+                        MULTISERVICIOS <span class="text-blue-600">DIAZ</span>
+                    </span>
                 </div>
             </a>
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="#inicio" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">Inicio</a>
-                <a href="#servicios" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">Servicios</a>
-                <a href="#sobre-nosotros" class="nav-link px-4 py-2 rounded-lg nav-link-color font-medium transition-all duration-200">Nosotros</a>
-                <div class="w-px h-6 bg-white/20 mx-2 nav-divider"></div>
+                <a href="#inicio" class="nav-link px-4 py-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-white/50 font-bold transition-all duration-200">Inicio</a>
+                <a href="#servicios" class="nav-link px-4 py-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-white/50 font-bold transition-all duration-200">Servicios</a>
+                <a href="#sobre-nosotros" class="nav-link px-4 py-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-white/50 font-bold transition-all duration-200">Nosotros</a>
+                <div class="w-px h-6 bg-slate-300/50 mx-2"></div>
                 <a href={WHATSAPP.default} target="_blank" class="ml-1 px-5 py-2.5 rounded-xl bg-green-500 hover:bg-green-400 text-white font-bold transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:-translate-y-0.5 flex items-center gap-2">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Contactar
+                    WhatsApp
                 </a>
             </div>
 
@@ -33,11 +38,12 @@ import { WHATSAPP } from '../config/site';
             <button
                 id="mobile-menu-btn"
                 type="button"
-                class="flex items-center md:hidden w-11 h-11 rounded-xl border border-white/30 justify-center nav-text-color transition-all duration-200 mobile-menu-btn-style"
+                class="flex items-center md:hidden w-11 h-11 rounded-xl border border-slate-200/50 justify-center text-slate-700 hover:text-blue-600 transition-all duration-200"
                 aria-label="Abrir menú"
                 aria-expanded="false"
             >
-                <span class="material-icons-outlined text-2xl" id="menu-icon">menu</span>
+                <svg id="menu-icon-open" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
             </button>
         </div>
     </div>
@@ -50,20 +56,20 @@ import { WHATSAPP } from '../config/site';
         <div class="flex items-center justify-between p-5 border-b border-gray-100">
             <span class="font-extrabold text-lg text-gray-900">Menú</span>
             <button id="mobile-menu-close" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:border-blue-300 transition-all">
-                <span class="material-icons-outlined">close</span>
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
             </button>
         </div>
         <div class="flex flex-col p-5 gap-1">
             <a href="#inicio" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
-                <span class="material-icons-outlined text-xl text-gray-400">home</span>
+                <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
                 Inicio
             </a>
             <a href="#servicios" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
-                <span class="material-icons-outlined text-xl text-gray-400">build</span>
+                <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M15.17 11.42a4 4 0 11-5.66-5.66 4 4 0 015.66 5.66zM5.5 8.5L2 12m0 0l3.5 3.5M2 12h14" /></svg>
                 Servicios
             </a>
             <a href="#sobre-nosotros" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
-                <span class="material-icons-outlined text-xl text-gray-400">groups</span>
+                <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
                 Nosotros
             </a>
             <div class="h-px bg-gray-100 my-3"></div>
@@ -72,7 +78,7 @@ import { WHATSAPP } from '../config/site';
                 WhatsApp
             </a>
             <a href="tel:+528992163741" class="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
-                <span class="material-icons-outlined text-lg">phone</span>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.25-3.95-6.847-6.847l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
                 Llamar Ahora
             </a>
         </div>
@@ -80,81 +86,9 @@ import { WHATSAPP } from '../config/site';
 </nav>
 
 <style>
-    /* Default state: transparent nav over hero (now a light hero) */
-    #main-nav {
-        background: transparent;
-    }
-
-    .nav-text-color {
-        color: #0f172a; /* script-900 */
-    }
-
-    .nav-link-color {
-        color: #334155; /* slate-700 */
-    }
-
-    .nav-link-color:hover {
-        color: #2563eb;
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    .nav-divider {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-menu-btn-style {
-        border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    /* Scrolled state: solid white background */
-    #main-nav.scrolled {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08); border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    #main-nav.scrolled .nav-text-color {
-        color: #0f172a;
-    }
-
-    #main-nav.scrolled .nav-link-color {
-        color: #475569;
-    }
-
-    #main-nav.scrolled .nav-link-color:hover {
-        color: #2563eb;
-        background-color: #f1f5f9;
-    }
-
-    #main-nav.scrolled .nav-divider {
-        background-color: #e2e8f0;
-    }
-
-    #main-nav .title-subtitle-transition {
-        color: #1d4ed8; /* blue-700 for better contrast on transparent */
-    }
-
-    #main-nav.scrolled .title-subtitle-transition {
-        color: #3b82f6; /* blue-500 back to normal on white bg */
-    }
-
-    #main-nav.scrolled .mobile-menu-btn-style {
-        border-color: #e2e8f0;
-        color: #475569;
-    }
-
     /* Active link */
     .nav-link.active {
         font-weight: 700;
-    }
-
-    #main-nav:not(.scrolled) .nav-link.active {
-        color: #2563eb;
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    #main-nav.scrolled .nav-link.active {
         color: #2563eb;
         background-color: #eff6ff;
     }
@@ -165,13 +99,12 @@ import { WHATSAPP } from '../config/site';
     const menuClose = document.getElementById('mobile-menu-close');
     const menu = document.getElementById('mobile-menu');
     const overlay = document.getElementById('mobile-menu-overlay');
-    const menuIcon = document.getElementById('menu-icon');
-
     function openMenu() {
         menu?.classList.remove('translate-x-full');
         overlay?.classList.remove('opacity-0', 'pointer-events-none');
         overlay?.classList.add('opacity-100', 'pointer-events-auto');
-        menuIcon!.textContent = 'close';
+        document.getElementById('menu-icon-open')?.classList.add('hidden');
+        document.getElementById('menu-icon-close')?.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
 
@@ -179,9 +112,25 @@ import { WHATSAPP } from '../config/site';
         menu?.classList.add('translate-x-full');
         overlay?.classList.add('opacity-0', 'pointer-events-none');
         overlay?.classList.remove('opacity-100', 'pointer-events-auto');
-        menuIcon!.textContent = 'menu';
+        document.getElementById('menu-icon-open')?.classList.remove('hidden');
         document.body.style.overflow = '';
     }
+
+    // Scroll handling for transparency
+    const nav = document.getElementById('main-nav');
+    const navContainer = document.getElementById('nav-container');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            nav?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'border-gray-100');
+            nav?.classList.remove('bg-transparent', 'border-transparent');
+            navContainer?.classList.replace('h-24', 'h-20');
+        } else {
+            nav?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'border-gray-100');
+            nav?.classList.add('bg-transparent', 'border-transparent');
+            navContainer?.classList.replace('h-20', 'h-24');
+        }
+    });
 
     menuBtn?.addEventListener('click', openMenu);
     menuClose?.addEventListener('click', closeMenu);
@@ -192,17 +141,6 @@ import { WHATSAPP } from '../config/site';
         link.addEventListener('click', closeMenu);
     });
 
-    // Navbar scroll: transparent → solid white
-    const nav = document.getElementById('main-nav');
-    function updateNav() {
-        if (window.scrollY > 60) {
-            nav?.classList.add('scrolled');
-        } else {
-            nav?.classList.remove('scrolled');
-        }
-    }
-    window.addEventListener('scroll', updateNav);
-    updateNav(); // Run on page load
 
     // Active section highlighting
     const sections = document.querySelectorAll('section[id]');
