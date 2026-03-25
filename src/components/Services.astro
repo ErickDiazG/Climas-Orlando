@@ -7,7 +7,7 @@ const leftServices = [
     {
         title: "Venta e Instalación de Minisplit",
         description: "Equipo Mirage con instalación profesional incluida y garantía de 3 meses.",
-        ctaText: "Cotizar ahora",
+        ctaText: "Solicitar cotización",
         ctaLink: WHATSAPP.ventaEquipos,
         icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.999 2.999 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.999 2.999 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" /></svg>`,
     },
@@ -20,7 +20,7 @@ const leftServices = [
     },
     {
         title: "Carga de Gas Refrigerante",
-        description: "Recarga de gas R-22 o R-410A. Si tu equipo ya no enfría como antes, puede ser fuga de gas.",
+        description: "Recarga experta de gas R-22 o R-410A. Si tu equipo ya no enfría como antes, puede ser fuga de gas.",
         ctaText: "Consultar precio",
         ctaLink: WHATSAPP.cargaDeGas,
         icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></svg>`,
@@ -51,73 +51,168 @@ const rightServices = [
     },
 ];
 ---
-
-<section id="servicios" class="py-16 md:py-24 bg-gray-50 border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="servicios" class="py-16 md:py-24 bg-slate-50 border-b border-gray-100">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
 
         <!-- Section Header -->
-        <div class="text-center mb-12 reveal">
-            <span class="inline-block text-blue-600 font-bold text-xs tracking-[0.2em] uppercase mb-3">Lo que hacemos</span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 uppercase leading-tight">
+        <div class="text-center mb-16 reveal relative">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-2 relative inline-block">
                 Nuestros Servicios
+                <!-- Organic Underline (SVG) -->
+                <div class="absolute -bottom-5 left-0 w-full h-4 overflow-visible pointer-events-none opacity-90 text-blue-600">
+                    <svg viewBox="0 0 400 20" preserveAspectRatio="none" class="w-full h-full fill-current">
+                        <path d="M0,10 Q100,20 200,10 T400,10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M20,15 Q120,5 220,15 T380,15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+                    </svg>
+                </div>
             </h2>
+            <p class="max-w-3xl mx-auto text-slate-500 font-medium text-[15px] sm:text-[17px] leading-relaxed mt-10">
+                Desde mantenimientos preventivos hasta reparaciones mayores, cubrimos cada necesidad de climatización y línea blanca.
+            </p>
         </div>
 
-        <!-- Bento Grid: Left cards | Center photo | Right cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px_1fr] gap-6">
-
-            <!-- Left column — AC Services -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-                {leftServices.map(service => (
-                    <div class="bg-white hover:shadow-lg transition-all duration-300 rounded-3xl py-10 px-8 flex flex-col gap-6 shadow-sm border border-slate-100 hover:border-blue-200 group">
-                        <div class="text-blue-600">
-                            <Fragment set:html={service.icon.replace('w-8 h-8', 'w-12 h-12')} />
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-slate-900 font-black text-xl leading-snug uppercase mb-3 tracking-tight">{service.title}</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">{service.description}</p>
-                        </div>
-                        <a href={service.ctaLink} target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow-sm transition-all duration-200 self-start uppercase tracking-wider">
-                            {service.ctaText}
-                        </a>
+        <!-- Symmetrical Grid for Desktop (Refined Proportions) -->
+        <div class="grid grid-cols-1 lg:grid-cols-[370px_1fr_370px] lg:gap-12 gap-5 items-stretch lg:grid-rows-3">
+            
+            <!-- Service Pair 1 -->
+            <div class="lg:col-start-1 lg:row-start-1 reveal-left h-full">
+                <div class="bg-white border-l-4 border-l-blue-600 rounded-xl p-6 lg:p-8 shadow-[0_15px_50px_-12px_rgba(30,58,138,0.05)] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 h-full flex flex-col group relative overflow-hidden">
+                    <div class="text-blue-600 mb-4 transition-transform duration-500 group-hover:scale-110 flex-shrink-0">
+                        <Fragment set:html={leftServices[0].icon.replace('w-8 h-8', 'w-12 h-12').replace('stroke-width="1.5"', 'stroke-width="2"')} />
                     </div>
-                ))}
+                    <h3 class="text-xl lg:text-[22px] leading-tight mb-3 text-slate-900 tracking-tight font-extrabold flex-shrink-0">
+                        {leftServices[0].title}
+                    </h3>
+                    <p class="text-slate-600 text-[14px] leading-relaxed mb-6 font-semibold flex-1">
+                        {leftServices[0].description}
+                    </p>
+                    <a href={leftServices[0].ctaLink} class="inline-block mt-auto bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-8 rounded-md shadow-md transition-all duration-300 uppercase text-[12px] md:text-[13px] tracking-wider w-fit flex-shrink-0">
+                        {leftServices[0].ctaText}
+                    </a>
+                </div>
             </div>
 
-            <!-- Center — Photo of technician with overlay -->
-            <div class="hidden lg:flex rounded-3xl overflow-hidden relative shadow-lg">
-                <!-- Photo -->
+            <!-- Central Tall Image (Maximized Width) -->
+            <div class="hidden lg:block lg:col-start-2 lg:row-span-3 relative rounded-xl overflow-hidden shadow-2xl reveal h-full group">
                 <Image
                     src={servicesImg}
-                    alt="Servicios Diaz - Nuestro experto trabajando"
-                    width={450}
-                    height={1000}
-                    class="w-full h-full object-cover object-top"
-                    loading="lazy"
+                    alt="Técnico trabajando"
+                    width={800}
+                    height={1200}
+                    class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[5s] group-hover:scale-105"
                 />
             </div>
 
-            <!-- Right column — Washer Services -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-                {rightServices.map(service => (
-                    <div class="bg-white hover:shadow-lg transition-all duration-300 rounded-3xl py-10 px-8 flex flex-col gap-6 shadow-sm border border-slate-100 hover:border-blue-200 group">
-                        <div class="text-blue-600">
-                            <Fragment set:html={service.icon.replace('w-8 h-8', 'w-12 h-12')} />
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-slate-900 font-black text-xl leading-snug uppercase mb-3 tracking-tight">{service.title}</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">{service.description}</p>
-                        </div>
-                        <a href={service.ctaLink} target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow-sm transition-all duration-200 self-start uppercase tracking-wider">
-                            {service.ctaText}
-                        </a>
+            <div class="lg:col-start-3 lg:row-start-1 reveal-right h-full">
+                <div class="bg-white border-l-4 border-l-blue-600 rounded-xl p-6 lg:p-8 shadow-[0_15px_50px_-12px_rgba(30,58,138,0.05)] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 h-full flex flex-col group relative overflow-hidden">
+                    <div class="text-blue-600 mb-4 transition-transform duration-500 group-hover:scale-110 flex-shrink-0">
+                        <Fragment set:html={rightServices[0].icon.replace('w-8 h-8', 'w-12 h-12').replace('stroke-width="1.5"', 'stroke-width="2"')} />
                     </div>
-                ))}
+                    <h3 class="text-xl lg:text-[22px] leading-tight mb-3 text-slate-900 tracking-tight font-extrabold flex-shrink-0">
+                        {rightServices[0].title}
+                    </h3>
+                    <p class="text-slate-600 text-[14px] leading-relaxed mb-6 font-semibold flex-1">
+                        {rightServices[0].description}
+                    </p>
+                    <a href={rightServices[0].ctaLink} class="inline-block mt-auto bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-8 rounded-md shadow-md transition-all duration-300 uppercase text-[12px] md:text-[13px] tracking-wider w-fit flex-shrink-0">
+                        {rightServices[0].ctaText}
+                    </a>
+                </div>
             </div>
 
-        </div>
+            <!-- Service Pair 2 -->
+            <div class="lg:col-start-1 lg:row-start-2 reveal-left h-full">
+                <div class="bg-white border-l-4 border-l-blue-600 rounded-xl p-6 lg:p-8 shadow-[0_15px_50px_-12px_rgba(30,58,138,0.05)] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 h-full flex flex-col group relative overflow-hidden">
+                    <div class="text-blue-600 mb-4 transition-transform duration-500 group-hover:scale-110 flex-shrink-0">
+                        <Fragment set:html={leftServices[1].icon.replace('w-8 h-8', 'w-12 h-12').replace('stroke-width="1.5"', 'stroke-width="2"')} />
+                    </div>
+                    <h3 class="text-xl lg:text-[22px] leading-tight mb-3 text-slate-900 tracking-tight font-extrabold flex-shrink-0">
+                        {leftServices[1].title}
+                    </h3>
+                    <p class="text-slate-600 text-[14px] leading-relaxed mb-6 font-semibold flex-1">
+                        {leftServices[1].description}
+                    </p>
+                    <a href={leftServices[1].ctaLink} class="inline-block mt-auto bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-8 rounded-md shadow-md transition-all duration-300 uppercase text-[12px] md:text-[13px] tracking-wider w-fit flex-shrink-0">
+                        {leftServices[1].ctaText}
+                    </a>
+                </div>
+            </div>
 
+            <div class="lg:col-start-3 lg:row-start-2 reveal-right h-full">
+                <div class="bg-white border-l-4 border-l-blue-600 rounded-xl p-6 lg:p-8 shadow-[0_15px_50px_-12px_rgba(30,58,138,0.05)] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 h-full flex flex-col group relative overflow-hidden">
+                    <div class="text-blue-600 mb-4 transition-transform duration-500 group-hover:scale-110 flex-shrink-0">
+                        <Fragment set:html={rightServices[1].icon.replace('w-8 h-8', 'w-12 h-12').replace('stroke-width="1.5"', 'stroke-width="2"')} />
+                    </div>
+                    <h3 class="text-xl lg:text-[22px] leading-tight mb-3 text-slate-900 tracking-tight font-extrabold flex-shrink-0">
+                        {rightServices[1].title}
+                    </h3>
+                    <p class="text-slate-600 text-[14px] leading-relaxed mb-6 font-semibold flex-1">
+                        {rightServices[1].description}
+                    </p>
+                    <a href={rightServices[1].ctaLink} class="inline-block mt-auto bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-8 rounded-md shadow-md transition-all duration-300 uppercase text-[12px] md:text-[13px] tracking-wider w-fit flex-shrink-0">
+                        {rightServices[1].ctaText}
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Image Banner -->
+            <div class="block lg:hidden relative w-full h-[320px] rounded-xl overflow-hidden shadow-xl my-4">
+                <Image src={servicesImg} alt="Garantía y Confianza" width={800} height={500} class="absolute inset-0 w-full h-full object-cover object-top" />
+                <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-[1px]"></div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                    <span class="inline-block text-blue-200 font-bold text-xs tracking-[0.3em] uppercase mb-4">Nuestro Compromiso</span>
+                    <h3 class="text-3xl font-black text-white leading-tight">Garantía y Confianza<br/>en Cada Detalle</h3>
+                </div>
+            </div>
+
+            <!-- Service Pair 3 -->
+            <div class="lg:col-start-1 lg:row-start-3 reveal-left h-full">
+                <div class="bg-white border-l-4 border-l-blue-600 rounded-xl p-6 lg:p-8 shadow-[0_15px_50px_-12px_rgba(30,58,138,0.05)] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 h-full flex flex-col group relative overflow-hidden">
+                    <div class="text-blue-600 mb-4 transition-transform duration-500 group-hover:scale-110 flex-shrink-0">
+                        <Fragment set:html={leftServices[2].icon.replace('w-8 h-8', 'w-12 h-12').replace('stroke-width="1.5"', 'stroke-width="2"')} />
+                    </div>
+                    <h3 class="text-xl lg:text-[22px] leading-tight mb-3 text-slate-900 tracking-tight font-extrabold flex-shrink-0">
+                        {leftServices[2].title}
+                    </h3>
+                    <p class="text-slate-600 text-[14px] leading-relaxed mb-6 font-semibold flex-1">
+                        {leftServices[2].description}
+                    </p>
+                    <a href={leftServices[2].ctaLink} class="inline-block mt-auto bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-8 rounded-md shadow-md transition-all duration-300 uppercase text-[12px] md:text-[13px] tracking-wider w-fit flex-shrink-0">
+                        {leftServices[2].ctaText}
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-start-3 lg:row-start-3 reveal-right h-full">
+                <div class="bg-white border-l-4 border-l-blue-600 rounded-xl p-6 lg:p-8 shadow-[0_15px_50px_-12px_rgba(30,58,138,0.05)] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 h-full flex flex-col group relative overflow-hidden">
+                    <div class="text-blue-600 mb-4 transition-transform duration-500 group-hover:scale-110 flex-shrink-0">
+                        <Fragment set:html={rightServices[2].icon.replace('w-8 h-8', 'w-12 h-12').replace('stroke-width="1.5"', 'stroke-width="2"')} />
+                    </div>
+                    <h3 class="text-xl lg:text-[22px] leading-tight mb-3 text-slate-900 tracking-tight font-extrabold flex-shrink-0">
+                        {rightServices[2].title}
+                    </h3>
+                    <p class="text-slate-600 text-[14px] leading-relaxed mb-6 font-semibold flex-1">
+                        {rightServices[2].description}
+                    </p>
+                    <a href={rightServices[2].ctaLink} class="inline-block mt-auto bg-blue-600 hover:bg-blue-700 text-white font-black py-3 px-8 rounded-md shadow-md transition-all duration-300 uppercase text-[12px] md:text-[13px] tracking-wider w-fit flex-shrink-0">
+                        {rightServices[2].ctaText}
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+    
+    .font-script {
+        font-family: 'Yellowtail', cursive;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .shadow-soft {
+        box-shadow: 0 10px 30px -10px rgba(31, 61, 92, 0.2);
+    }
+</style>

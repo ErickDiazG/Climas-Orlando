@@ -29,19 +29,30 @@ const trustPoints = [
                         loading="lazy"
                     />
                 </div>
-                <!-- Experience badge — subtle, no floating cards -->
-                <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-sm rounded-xl px-5 py-4 text-white">
-                    <div class="flex items-center gap-3">
-                        <div class="text-3xl font-black text-blue-400">+{STATS.yearsExperience}</div>
-                        <div>
-                            <p class="font-bold text-sm leading-tight">Años sirviendo</p>
-                            <p class="text-slate-400 text-xs">a familias de Reynosa</p>
+                <!-- Experience badge -->
+                <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-sm rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-white border border-white/10 shadow-xl">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
+                        <!-- Stat 1 -->
+                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                            <div class="text-3xl sm:text-4xl font-black text-blue-400">+{STATS.yearsExperience}</div>
+                            <div>
+                                <p class="font-bold text-sm leading-tight text-white">Años sirviendo</p>
+                                <p class="text-slate-400 text-xs">a familias de Reynosa</p>
+                            </div>
                         </div>
-                        <div class="mx-3 w-px h-10 bg-slate-600"></div>
-                        <div class="text-3xl font-black text-blue-400">+{STATS.servicesCompleted}</div>
-                        <div>
-                            <p class="font-bold text-sm leading-tight">Servicios</p>
-                            <p class="text-slate-400 text-xs">completados</p>
+
+                        <!-- Divider (Hidden on mobile) -->
+                        <div class="hidden sm:block mx-4 w-px h-10 bg-slate-600"></div>
+                        <!-- Horizontal Divider (Visible on mobile) -->
+                        <div class="block sm:hidden w-full h-px bg-slate-600/50"></div>
+
+                        <!-- Stat 2 -->
+                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                            <div class="text-3xl sm:text-4xl font-black text-blue-400">+{STATS.servicesCompleted}</div>
+                            <div>
+                                <p class="font-bold text-sm leading-tight text-white">Servicios</p>
+                                <p class="text-slate-400 text-xs">completados</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,7 +83,7 @@ const trustPoints = [
                 </ul>
 
                 <!-- CTA -->
-                <a href="#contacto" class="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-lg transition-all duration-300 text-sm shadow-md hover:shadow-lg">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 text-sm shadow-md hover:shadow-lg">
                     Contactame Ahora
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </a>

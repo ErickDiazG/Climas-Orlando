@@ -1,4 +1,4 @@
-# Guía de Mejores Prácticas — Climas Orlando (Multiservicios Diaz)
+# Guía de Mejores Prácticas — Climas Orlando (Servicios Diaz)
 
 Este documento define las directrices y estándares para el desarrollo del proyecto **Climas Orlando**, una landing page profesional para un negocio de climatización y línea blanca, construida con **Astro** y **Tailwind CSS v3**, diseñada para generar conversiones vía WhatsApp, posicionar en SEO local y ofrecer una experiencia premium al usuario.
 
