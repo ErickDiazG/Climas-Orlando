@@ -11,7 +11,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={SITE.description} />
@@ -59,7 +59,7 @@ const { title } = Astro.props;
 			"priceRange": "$$"
 		})} />
 	</head>
-	<body class="bg-gray-50 font-manrope text-slate-700 antialiased min-h-screen flex flex-col">
+	<body class="bg-gray-50 font-manrope text-slate-700 antialiased min-h-screen flex flex-col overflow-x-hidden">
 		<slot />
 
 		<!-- WhatsApp Floating Button -->
