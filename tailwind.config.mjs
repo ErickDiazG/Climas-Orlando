@@ -4,42 +4,36 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: {
-                    50: '#e8f4fd',
-                    100: '#d1e9fb',
-                    200: '#a3d3f7',
-                    300: '#5fb5f0',
-                    400: '#2196e3',
-                    500: '#1173d4',
-                    600: '#0d5eae',
-                    700: '#0a4a8a',
-                    800: '#083a6d',
-                    900: '#062c54',
-                    950: '#041d38',
+                brand: {
+                    50: '#f0f9ff',
+                    100: '#e0f2fe',
+                    200: '#bae6fd',
+                    300: '#7dd3fc',
+                    400: '#38bdf8',
+                    500: '#0ea5e9',
+                    600: '#0284c7',
+                    700: '#0369a1',
+                    800: '#075985',
+                    900: '#0c4a6e',
                 },
-                accent: {
-                    50: '#fff8eb',
-                    100: '#feecc7',
-                    200: '#fdd889',
-                    300: '#fcc04c',
-                    400: '#fba823',
-                    500: '#f5870a',
-                    600: '#d96305',
-                    700: '#b44308',
-                    800: '#92340d',
-                    900: '#782b0e',
+                warm: {
+                    50: '#fff7ed',
+                    100: '#ffedd5',
+                    200: '#fed7aa',
+                    300: '#fdba74',
+                    400: '#fb923c',
+                    500: '#f97316',
+                    600: '#ea580c',
+                    700: '#c2410c',
+                    800: '#9a3412',
+                    900: '#7c2d12',
                 },
-                success: {
-                    50: '#edfcf2',
-                    100: '#d3f8df',
-                    200: '#aaf0c4',
-                    300: '#73e2a3',
-                    400: '#3bcd7e',
-                    500: '#17b362',
-                    600: '#0b914e',
-                    700: '#097440',
-                    800: '#0a5c35',
-                    900: '#094b2d',
+                dark: {
+                    950: '#030712',
+                },
+                navy: {
+                    900: '#0f172a',
+                    950: '#0a0f1d',
                 },
             },
             fontFamily: {
@@ -54,6 +48,8 @@ export default {
                 'float': 'float 6s ease-in-out infinite',
                 'gradient-text': 'gradientShift 4s ease-in-out infinite',
                 'pulse-slow': 'pulse 3s ease-in-out infinite',
+                'blob': 'blob 8s ease-in-out infinite',
+                'shimmer': 'shimmer 2s linear infinite',
             },
             keyframes: {
                 fadeInUp: {
@@ -79,6 +75,16 @@ export default {
                 gradientShift: {
                     '0%, 100%': { backgroundPosition: '0% 50%' },
                     '50%': { backgroundPosition: '100% 50%' },
+                },
+                blob: {
+                    '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                    '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                    '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                    '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% 0' },
+                    '100%': { backgroundPosition: '200% 0' },
                 },
             },
         },

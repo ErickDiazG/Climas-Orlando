@@ -4,13 +4,16 @@ import { Image } from 'astro:assets';
 import logoImg from '../../public/images/Logo SD.webp';
 ---
 
-<!-- Header Wrapper — Hybrid (Transparent on top, White on scroll) -->
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent border-b border-transparent">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20 items-center">
-            <!-- Logo & Brand Name -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent opacity-0 -translate-y-4 md:opacity-100 md:translate-y-0">
+    <!-- Subtle gradient overlay at the top for better text readability -->
+    <div id="nav-gradient" class="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent transition-opacity duration-500 opacity-100"></div>
+
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-18 items-center py-4">
+            <!-- Logo -->
             <a href="/" class="flex items-center gap-3 group">
-                <div class="relative w-12 h-12 bg-white rounded-full overflow-hidden border border-gray-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <div class="relative w-11 h-11 bg-white rounded-full overflow-hidden border border-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-xl">
                     <Image 
                         src={logoImg} 
                         alt="Logo Servicios Diaz" 
@@ -20,23 +23,22 @@ import logoImg from '../../public/images/Logo SD.webp';
                         loading="eager"
                     />
                 </div>
-                <div class="flex flex-col">
-                    <span id="logo-text" class="text-base md:text-lg font-black tracking-tighter text-white transition-colors duration-500 leading-none">
-                        SERVICIOS <span class="text-blue-500">DIAZ</span>
+                <div class="hidden sm:flex">
+                    <span id="logo-text" class="text-xl font-black tracking-tighter text-white transition-colors duration-500 leading-none">
+                        SERVICIOS <span class="text-brand-400">DIAZ</span>
                     </span>
-                    <span id="logo-subtext" class="text-[10px] text-white/70 transition-colors duration-500 font-medium tracking-widest uppercase">Reynosa, Tamps.</span>
                 </div>
             </a>
 
-            <!-- Desktop Nav & Actions -->
+            <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-8">
-                <div id="nav-links" class="flex items-center gap-1">
-                    <a href="#inicio" class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white font-semibold text-sm transition-all duration-300">Inicio</a>
-                    <a href="#servicios" class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white font-semibold text-sm transition-all duration-300">Servicios</a>
-                    <a href="#sobre-nosotros" class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white font-semibold text-sm transition-all duration-300">Mi Experiencia</a>
+                <div id="nav-links" class="flex items-center">
+                    <a href="#inicio" class="nav-link px-5 py-2 rounded-xl text-white/80 hover:text-brand-400 font-medium text-sm transition-all duration-300">Inicio</a>
+                    <a href="#servicios" class="nav-link px-5 py-2 rounded-xl text-white/80 hover:text-brand-400 font-medium text-sm transition-all duration-300">Servicios</a>
+                    <a href="#sobre-nosotros" class="nav-link px-5 py-2 rounded-xl text-white/80 hover:text-brand-400 font-medium text-sm transition-all duration-300">Sobre Mí</a>
                 </div>
                 
-                <a href={WHATSAPP.default} target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                <a href={WHATSAPP.default} target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 hover:-translate-y-0.5">
                     Contáctanos
                 </a>
             </div>
@@ -45,7 +47,7 @@ import logoImg from '../../public/images/Logo SD.webp';
             <button
                 id="mobile-menu-btn"
                 type="button"
-                class="flex items-center md:hidden w-11 h-11 rounded-xl border border-white/30 justify-center text-white hover:text-blue-400 transition-all duration-500"
+                class="flex items-center md:hidden w-10 h-10 rounded-xl border border-slate-200 justify-center text-slate-900 hover:text-brand-600 transition-all duration-500"
                 aria-label="Menú"
                 aria-expanded="false"
             >
@@ -56,61 +58,52 @@ import logoImg from '../../public/images/Logo SD.webp';
     </div>
 </nav>
 
-<!-- Mobile Menu Overlay (Moved outside <nav> to avoid blur inheritance) -->
-<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-navy-950/90 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
 
-<!-- Mobile Menu Panel (Moved outside <nav> and uses h-screen) -->
-<div id="mobile-menu" class="fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 ease-out md:hidden">
-    <div class="flex items-center justify-between p-5 border-b border-gray-100">
-        <span class="font-extrabold text-lg text-gray-900">Menú</span>
+<!-- Mobile Menu Panel -->
+<div id="mobile-menu" class="fixed top-0 right-0 h-screen w-[300px] bg-navy-950 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 ease-out md:hidden">
+    <div class="flex items-center justify-between p-5 border-b border-white/10">
+        <span class="font-extrabold text-lg text-white">Menú</span>
         <button 
             id="mobile-menu-close" 
-            class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:border-blue-300 transition-all"
+            class="w-10 h-10 rounded-xl border border-white/20 flex items-center justify-center text-white hover:text-brand-400 hover:border-brand-500 transition-all"
             aria-label="Cerrar menú"
         >
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
         </button>
     </div>
-    <div class="flex flex-col p-5 gap-1 overflow-y-auto h-[calc(100vh-80px)]">
-        <a href="#inicio" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+    <div class="flex flex-col p-5 gap-2 overflow-y-auto h-[calc(100vh-80px)]">
+        <a href="#inicio" class="mobile-nav-link flex items-center gap-3 px-4 py-4 rounded-xl text-white/80 hover:text-white hover:bg-white/5 font-medium transition-all duration-200">
+            <svg class="w-5 h-5 text-brand-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
             Inicio
         </a>
-        <a href="#servicios" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M15.17 11.42a4 4 0 11-5.66-5.66 4 4 0 015.66 5.66zM5.5 8.5L2 12m0 0l3.5 3.5M2 12h14" /></svg>
+        <a href="#servicios" class="mobile-nav-link flex items-center gap-3 px-4 py-4 rounded-xl text-white/80 hover:text-white hover:bg-white/5 font-medium transition-all duration-200">
+            <svg class="w-5 h-5 text-brand-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M15.17 11.42a4 4 0 11-5.66-5.66 4 4 0 015.66 5.66zM5.5 8.5L2 12m0 0l3.5 3.5M2 12h14" /></svg>
             Servicios
         </a>
-        <a href="#sobre-nosotros" class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200">
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
-            Mi Experiencia
+        <a href="#sobre-nosotros" class="mobile-nav-link flex items-center gap-3 px-4 py-4 rounded-xl text-white/80 hover:text-white hover:bg-white/5 font-medium transition-all duration-200">
+            <svg class="w-5 h-5 text-brand-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+            Sobre Mí
         </a>
-        <div class="h-px bg-gray-100 my-3"></div>
-        <a href={WHATSAPP.default} target="_blank" class="px-6 py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+        <div class="h-px bg-white/10 my-3"></div>
+        <a href={WHATSAPP.default} target="_blank" class="px-6 py-4 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-3">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             WhatsApp
         </a>
-        <a href="tel:+528992163741" class="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+        <a href={`tel:${CONTACT.phone}`} class="px-6 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-3 border border-white/20">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.25-3.95-6.847-6.847l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
             Llamar Ahora
         </a>
     </div>
 </div>
 
-
-<style>
-    /* Active link */
-    .nav-link.active {
-        font-weight: 700;
-        color: #2563eb; /* blue-600 */
-        background-color: #eff6ff; /* blue-50 */
-    }
-</style>
-
 <script>
     const menuBtn = document.getElementById('mobile-menu-btn');
     const menuClose = document.getElementById('mobile-menu-close');
     const menu = document.getElementById('mobile-menu');
     const overlay = document.getElementById('mobile-menu-overlay');
+
     function openMenu() {
         menu?.classList.remove('translate-x-full');
         overlay?.classList.remove('opacity-0', 'pointer-events-none');
@@ -129,78 +122,55 @@ import logoImg from '../../public/images/Logo SD.webp';
         document.body.style.overflow = '';
     }
 
-    // Hybrid Scroll handling
     const nav = document.getElementById('main-nav');
-    const logoText = document.getElementById('logo-text');
-    const logoSubtext = document.getElementById('logo-subtext');
-    const desktopNavLinks = document.getElementById('nav-links')?.querySelectorAll('a');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navGradient = document.getElementById('nav-gradient');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-            // Scrolled: Set white background and dark text
-            nav?.classList.add('bg-white', 'shadow-sm', 'border-gray-200');
-            nav?.classList.remove('bg-transparent', 'border-transparent');
-            
+        const logoText = document.getElementById('logo-text');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navGradient = document.getElementById('nav-gradient');
+
+        if (window.scrollY > 50) {
+            nav?.classList.add('bg-white', 'shadow-lg', 'border-b', 'border-slate-100', 'opacity-100', 'translate-y-0');
+            nav?.classList.remove('bg-transparent', 'opacity-0', '-translate-y-4');
+            navGradient?.classList.add('opacity-0');
+            navGradient?.classList.remove('opacity-100');
             logoText?.classList.add('text-slate-900');
             logoText?.classList.remove('text-white');
-            
-            logoSubtext?.classList.add('text-slate-400');
-            logoSubtext?.classList.remove('text-white/70');
-            
-            desktopNavLinks?.forEach(link => {
+            mobileBtn?.classList.add('text-slate-900', 'border-slate-200');
+            mobileBtn?.classList.remove('text-white', 'border-white/10');
+            navLinks.forEach(link => {
                 link.classList.add('text-slate-600');
-                link.classList.remove('text-white/90');
+                link.classList.remove('text-white/80');
             });
-
-            // Mobile hamburger: dark on white bg
-            mobileMenuBtn?.classList.add('text-slate-700', 'border-slate-200');
-            mobileMenuBtn?.classList.remove('text-white', 'border-white/30');
         } else {
-            // Top: Set transparent background and white text
-            nav?.classList.remove('bg-white', 'shadow-sm', 'border-gray-200');
-            nav?.classList.add('bg-transparent', 'border-transparent');
+            const isMobile = window.innerWidth < 768;
+            nav?.classList.remove('bg-white', 'shadow-lg', 'border-b', 'border-slate-100');
+            nav?.classList.add('bg-transparent');
             
+            if (isMobile) {
+                nav?.classList.add('opacity-0', '-translate-y-4');
+                nav?.classList.remove('opacity-100', 'translate-y-0');
+            } else {
+                nav?.classList.add('opacity-100', 'translate-y-0');
+                nav?.classList.remove('opacity-0', '-translate-y-4');
+            }
+
+            navGradient?.classList.add('opacity-100');
+            navGradient?.classList.remove('opacity-0');
             logoText?.classList.remove('text-slate-900');
             logoText?.classList.add('text-white');
-            
-            logoSubtext?.classList.remove('text-slate-400');
-            logoSubtext?.classList.add('text-white/70');
-            
-            desktopNavLinks?.forEach(link => {
+            mobileBtn?.classList.remove('text-slate-900', 'border-slate-200');
+            mobileBtn?.classList.add('text-white', 'border-white/10');
+            navLinks.forEach(link => {
                 link.classList.remove('text-slate-600');
-                link.classList.add('text-white/90');
+                link.classList.add('text-white/80');
             });
-
-            // Mobile hamburger: white on dark bg
-            mobileMenuBtn?.classList.remove('text-slate-700', 'border-slate-200');
-            mobileMenuBtn?.classList.add('text-white', 'border-white/30');
         }
     });
 
-    // Reveal animation observer
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    menuBtn?.addEventListener('click', openMenu);
-    menuClose?.addEventListener('click', closeMenu);
-    overlay?.addEventListener('click', closeMenu);
-
-    // Close on nav link click
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-
-    // Active section highlighting
+    // Active link detection
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -219,4 +189,19 @@ import logoImg from '../../public/images/Logo SD.webp';
     }, { rootMargin: '-40% 0px -60% 0px' });
 
     sections.forEach(section => sectionObserver.observe(section));
+
+    // Event Listeners
+    menuBtn?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-nav-link').forEach(link => link.addEventListener('click', closeMenu));
 </script>
+
+<style>
+    .nav-link.active {
+        color: #0ea5e9; /* brand-500 */
+        font-weight: 800;
+        transform: scale(1.05);
+        text-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    }
+</style>

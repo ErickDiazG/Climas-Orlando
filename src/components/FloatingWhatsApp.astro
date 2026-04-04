@@ -1,27 +1,16 @@
 ---
 import { WHATSAPP } from '../config/site';
 import { Image } from 'astro:assets';
-import logoImg from '../../public/images/Logo SD.webp';
 ---
 
-<div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 font-manrope pointer-events-none">
+<div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 font-sans pointer-events-none">
     
     <!-- Chat Bubble -->
-    <div id="wa-chat-bubble" class="relative bg-white rounded-2xl p-3 sm:p-4 shadow-2xl shadow-slate-200/60 border border-slate-100 flex items-center gap-3 sm:gap-4 max-w-[240px] sm:max-w-[300px] animate-fade-in-up origin-bottom-right pointer-events-auto">
+    <div id="wa-chat-bubble" class="relative bg-white rounded-2xl p-4 shadow-2xl border border-slate-100 flex items-center gap-3 max-w-[240px] sm:max-w-[300px] animate-fade-in-up origin-bottom-right pointer-events-auto">
         
-        <!-- Aquí puedes cambiar la imagen del perfil. Solo sube tu nueva imagen a src/assets/images o public/images y cambia el import arriba -->
-        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0 border-[3px] border-green-500/10 bg-slate-100 flex items-center justify-center">
-            <Image 
-                src={logoImg} 
-                alt="Logo Servicios Diaz" 
-                width={48}
-                height={48}
-                class="w-full h-full object-cover mix-blend-multiply"
-            />
-        </div>
         <div>
-            <p class="text-slate-700 text-[13px] sm:text-[14px] font-medium leading-snug">
-                Hola, ¿tienes alguna duda? <strong class="font-bold">Escríbenos aquí.</strong>
+            <p class="text-slate-900 text-[13px] sm:text-[14px] font-medium leading-snug">
+                Hola, ¿tienes alguna duda? <strong class="font-bold text-brand-500">Escríbenos aquí.</strong>
             </p>
         </div>
         <!-- Little triangle pointing down-right -->

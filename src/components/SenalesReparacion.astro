@@ -1,92 +1,95 @@
 ---
 import { WHATSAPP } from '../config/site';
 
-const signals = [
-    {
-        title: "Ruidos extraños",
-        description: "Zumbidos, vibraciones o golpes al encender. Puede ser el compresor, el ventilador o piezas sueltas.",
-        solution: "Revisión del motor, ajuste de aspas y diagnóstico de desgaste en rodamientos internos.",
-        icon: `<svg class="w-full h-full" fill="none" viewBox="0 0 24 24"><path class="text-orange-500 group-hover:text-orange-200 transition-colors duration-500" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424" /><path class="text-blue-600 group-hover:text-white transition-colors duration-500" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" /></svg>`
-    },
-    {
-        title: "No enfría suficiente",
-        description: "El aire sale tibio o tarda mucho en enfriar. Puede ser falta de gas, filtros sucios o falla eléctrica.",
-        solution: "Limpieza profunda de serpentines y medición exacta de la presión de gas refrigerante.",
-        icon: `<svg class="w-full h-full" fill="none" viewBox="0 0 24 24"><path class="text-orange-500 group-hover:text-orange-200 transition-colors duration-500" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" /><path class="text-blue-600 group-hover:text-white transition-colors duration-500" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" /></svg>`
-    },
-    {
-        title: "Factura de luz elevada",
-        description: "Un aumento repentino en tu recibo puede indicar que tu equipo trabaja de más por una falla interna o falta de mantenimiento.",
-        solution: "Mantenimiento preventivo completo para desahogar el compresor y bajar drásticamente el consumo eléctrico.",
-        icon: `<svg class="w-full h-full" fill="none" viewBox="0 0 24 24"><path class="text-orange-500 group-hover:text-orange-200 transition-colors duration-500" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /><path class="text-blue-600 group-hover:text-white transition-colors duration-500" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M19 5h-2M15 3v2" /></svg>`
-    },
-    {
-        title: "Fugas de agua",
-        description: "Goteo dentro de tu habitación o manchas en la pared. Generalmente indica obstrucción severa en el drenaje o congelamiento.",
-        solution: "Destapamos la tubería de desagüe a presión, charola interna y nivelamos el equipo correctamente.",
-        icon: `<svg class="w-full h-full" fill="none" viewBox="0 0 24 24"><path class="text-orange-500 group-hover:text-orange-200 transition-colors duration-500" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 21h10M5 18h14" /><path class="text-blue-600 group-hover:text-white transition-colors duration-500" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c-2.25 3.75-6.75 7.5-6.75 12a6.75 6.75 0 0 0 13.5 0c0-4.5-4.5-8.25-6.75-12Z" /></svg>`
-    },
-    {
-        title: "Olores inusuales",
-        description: "Olores a humedad, quemado o moho al encender. Señal clara de gran acumulación de bacterias o sobrecalentamiento eléctrico.",
-        solution: "Aplicamos químicos especiales bactericidas durante el servicio de limpieza a presión (sin desarmar todo el equipo).",
-        icon: `<svg class="w-full h-full" fill="none" viewBox="0 0 24 24"><path class="text-orange-500 group-hover:text-orange-200 transition-colors duration-500" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01" /><path class="text-blue-600 group-hover:text-white transition-colors duration-500" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3.598 6A11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286Z" /></svg>`
-    },
-    {
-        title: "Se congela el equipo",
-        description: "Placas de hielo en las tuberías o en el panel frontal del evaporador. Causado por gas muy bajo o componentes bloqueados.",
-        solution: "Buscamos y reparamos la fuga de gas, probamos los sensores de temperatura y recargamos el R-22 o R-410A.",
-        icon: `<svg class="w-full h-full" fill="none" viewBox="0 0 24 24"><path class="text-orange-500 group-hover:text-orange-200 transition-colors duration-500" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /><path class="text-blue-600 group-hover:text-white transition-colors duration-500" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636" /></svg>`
-    }
+const minisplitSymptoms = [
+    "Ya no enfría como antes o echa aire al tiempo.",
+    "Tira agua hacia adentro de la habitación.",
+    "Hace ruidos extraños, zumbidos o vibra mucho.",
+    "Huele mal (a humedad o polvo) al encenderlo.",
+    "Se apaga solo o marca un código de error en la pantalla."
+];
+
+const washerSymptoms = [
+    "No centrifuga o la ropa sale empapada.",
+    "No tira el agua (no desagua).",
+    "Hace mucho ruido o golpea fuerte al centrifugar.",
+    "No enciende, se pausa a medio ciclo o parpadean las luces.",
+    "Tira agua por debajo o huele a quemado."
 ];
 ---
 
-<section class="py-20 bg-slate-50 overflow-hidden relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+<section class="py-20 lg:py-28 bg-dark-950 relative overflow-hidden">
+    <!-- Background decorations -->
+    <div class="absolute top-0 right-1/4 w-72 h-72 bg-brand-500/10 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-warm-500/10 rounded-full blur-[120px]"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-14 reveal">
-            <span class="inline-block text-blue-600 font-bold text-xs tracking-[0.2em] uppercase mb-3">¿Tu equipo tiene estos síntomas?</span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 uppercase leading-tight mb-5">
-                Señales de que necesitas<br class="hidden sm:block" /> una revisión
+        <div class="text-center mb-16">
+            <span class="inline-block text-warm-400 font-semibold text-xs uppercase tracking-[0.2em] mb-3">Importante</span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-5 leading-tight">
+                ¿Tu equipo tiene<span class="text-warm-400"> estos síntomas</span>?
             </h2>
-            <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                Si tu aire acondicionado presenta alguno de estos síntomas, es momento de actuar antes de que el problema crezca.
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                Estas son señales claras de que necesitas una revisión urgente antes de que el problema sea más costoso.
             </p>
         </div>
 
-        <!-- Diagnostic Grid (3 Columns Desktop, 1 Column Mobile) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-14">
-            {signals.map((signal) => (
-                <div class="flex flex-col bg-white border border-slate-200 border-t-4 border-t-blue-600 group-hover:border-blue-300 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 p-6 sm:p-8 group">
-                    <!-- Header: Icon + Title -->
-                    <div class="flex flex-col items-center text-center gap-4 mb-6">
-                        <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
-                            <Fragment set:html={signal.icon.replace('w-7 h-7', 'w-9 h-9')} />
-                        </div>
-                        <h3 class="text-slate-900 font-extrabold text-xl tracking-tight leading-tight px-2">
-                            {signal.title}
-                        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+            <!-- Minisplit Card -->
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:bg-white/10 hover:border-white/20 group">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
                     </div>
-                    
-                    <!-- Content: Description -->
-                    <div class="flex-1 text-center">
-                        <p class="text-slate-500 leading-relaxed text-[15px]">
-                            {signal.description}
-                        </p>
-                    </div>
+                    <h3 class="text-xl font-bold text-white">En tu Minisplit</h3>
                 </div>
-            ))}
+                
+                <ul class="space-y-4">
+                    {minisplitSymptoms.map((symptom) => (
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-warm-500/20 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-warm-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </span>
+                            <span class="text-slate-300 text-sm leading-relaxed">{symptom}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Washer Card -->
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:bg-white/10 hover:border-white/20 group">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-warm-500/20 rounded-xl flex items-center justify-center text-warm-400 group-hover:bg-warm-500 group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">En tu Lavadora</h3>
+                </div>
+                
+                <ul class="space-y-4">
+                    {washerSymptoms.map((symptom) => (
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-warm-500/20 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-warm-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </span>
+                            <span class="text-slate-300 text-sm leading-relaxed">{symptom}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
 
-        <!-- CTA -->
-        <div class="text-center reveal">
-            <a href={WHATSAPP.default} target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-sm shadow-lg transition-all duration-300 hover:-translate-y-0.5 uppercase tracking-wider">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                ¿Tu equipo tiene estos síntomas? Contáctanos
+        <!-- CTA Button -->
+        <div class="text-center">
+            <a href={WHATSAPP.default} target="_blank"
+               class="inline-flex items-center gap-3 px-8 py-4 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-xl shadow-lg shadow-brand-500/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
+                Agendar Revisión Hoy
             </a>
         </div>
-
     </div>
 </section>
