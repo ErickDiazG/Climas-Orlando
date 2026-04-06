@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import logoImg from '../../public/images/Logo SD.webp';
 ---
 
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent opacity-0 -translate-y-4 md:opacity-100 md:translate-y-0">
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent opacity-100 translate-y-0">
     <!-- Subtle gradient overlay at the top for better text readability -->
     <div id="nav-gradient" class="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent transition-opacity duration-500 opacity-100"></div>
 
@@ -47,7 +47,7 @@ import logoImg from '../../public/images/Logo SD.webp';
             <button
                 id="mobile-menu-btn"
                 type="button"
-                class="flex items-center md:hidden w-10 h-10 rounded-xl border border-slate-200 justify-center text-slate-900 hover:text-brand-600 transition-all duration-500"
+                class="flex items-center md:hidden w-10 h-10 rounded-xl border border-white/20 justify-center text-white hover:text-brand-400 transition-all duration-500"
                 aria-label="Menú"
                 aria-expanded="false"
             >
@@ -132,40 +132,32 @@ import logoImg from '../../public/images/Logo SD.webp';
         const navGradient = document.getElementById('nav-gradient');
 
         if (window.scrollY > 50) {
-            nav?.classList.add('bg-white', 'shadow-lg', 'border-b', 'border-slate-100', 'opacity-100', 'translate-y-0');
+            nav?.classList.add('bg-navy-950/20', 'backdrop-blur-md', 'shadow-lg', 'border-b', 'border-white/5', 'opacity-100', 'translate-y-0');
             nav?.classList.remove('bg-transparent', 'opacity-0', '-translate-y-4');
             navGradient?.classList.add('opacity-0');
             navGradient?.classList.remove('opacity-100');
-            logoText?.classList.add('text-slate-900');
-            logoText?.classList.remove('text-white');
-            mobileBtn?.classList.add('text-slate-900', 'border-slate-200');
-            mobileBtn?.classList.remove('text-white', 'border-white/10');
+            logoText?.classList.add('text-white');
+            logoText?.classList.remove('text-slate-900');
+            mobileBtn?.classList.add('text-white', 'border-white/20');
+            mobileBtn?.classList.remove('text-slate-900', 'border-slate-200');
             navLinks.forEach(link => {
-                link.classList.add('text-slate-600');
-                link.classList.remove('text-white/80');
+                link.classList.add('text-white/80');
+                link.classList.remove('text-slate-600');
             });
         } else {
             const isMobile = window.innerWidth < 768;
-            nav?.classList.remove('bg-white', 'shadow-lg', 'border-b', 'border-slate-100');
-            nav?.classList.add('bg-transparent');
-            
-            if (isMobile) {
-                nav?.classList.add('opacity-0', '-translate-y-4');
-                nav?.classList.remove('opacity-100', 'translate-y-0');
-            } else {
-                nav?.classList.add('opacity-100', 'translate-y-0');
-                nav?.classList.remove('opacity-0', '-translate-y-4');
-            }
+            nav?.classList.remove('bg-white', 'shadow-lg', 'border-b', 'border-slate-100', 'opacity-0', '-translate-y-4');
+            nav?.classList.add('bg-transparent', 'opacity-100', 'translate-y-0');
 
             navGradient?.classList.add('opacity-100');
             navGradient?.classList.remove('opacity-0');
-            logoText?.classList.remove('text-slate-900');
             logoText?.classList.add('text-white');
-            mobileBtn?.classList.remove('text-slate-900', 'border-slate-200');
+            logoText?.classList.remove('text-slate-900');
             mobileBtn?.classList.add('text-white', 'border-white/10');
+            mobileBtn?.classList.remove('text-slate-900', 'border-slate-200');
             navLinks.forEach(link => {
-                link.classList.remove('text-slate-600');
                 link.classList.add('text-white/80');
+                link.classList.remove('text-slate-600');
             });
         }
     });
